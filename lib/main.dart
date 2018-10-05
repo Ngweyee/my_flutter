@@ -41,8 +41,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
+  int _counter = 10;
+  int _number = 0;
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -51,6 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _substractNumbers() {
+    setState(() {
+      _counter--;
     });
   }
 
@@ -88,20 +94,49 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Text(
-              'You have pushed the button this many times:',
-            ),
-            new Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
+            ),
+            new RaisedButton(
+                child: Text('Add'),
+                textColor: Colors.white,
+                color: Colors.red,
+                padding: const EdgeInsets.all(8.0),
+                onPressed: () {
+                  _incrementCounter();
+                }),
+            new RaisedButton(
+              textColor: Colors.white,
+              color: Colors.red,
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Subtract'),
+              onPressed: () {
+                _substractNumbers();
+              },
+            ),
+            new RaisedButton(
+              textColor: Colors.white,
+              color: Colors.red,
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Multiply'),
+              onPressed: () {
+                _substractNumbers();
+              },
+            ),
+            new RaisedButton(
+              textColor: Colors.white,
+              color: Colors.red,
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Divide'),
+              onPressed: () {
+                _substractNumbers();
+              },
             ),
           ],
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: new Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
